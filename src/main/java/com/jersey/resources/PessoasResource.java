@@ -118,5 +118,23 @@ public class PessoasResource {
             pessoas.setIdpessoa(idpessoa);
             return pessoasDao.save(pessoas);
         }
+        }
+         /**
+     * Get single Pessoas
+     * @param nome
+     * @return pessoas
+     */
+    @GET
+    @Consumes("application/json; charset=UTF-8")
+    @Produces("application/json; charset=UTF-8")
+    @Path("/buscar/{nome}")
+    public Pessoas getPessoasNome(@PathParam("nome") String nome) {
+        Pessoas pessoas = pessoasDao.findByNome(nome);
+        if (pessoas == null) {
+            throw new WebApplicationException((Response.Status.NOT_FOUND));
+        }
+        return pessoas;
     }
 }
+
+
