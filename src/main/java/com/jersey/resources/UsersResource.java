@@ -56,6 +56,22 @@ public class UsersResource {
         }
         return users;
     }
+       /**
+     * Get single Users
+     * @param name
+     * @return users
+     */
+    @GET
+    @Consumes("application/json; charset=UTF-8")
+    @Produces("application/json; charset=UTF-8")
+    @Path("/buscar/{name}")
+    public Users getUsersName(@PathParam("name") String name) {
+        Users users = usersDao.findByLastnameOrFirstname(name);
+        if (users == null) {
+            throw new WebApplicationException((Response.Status.NOT_FOUND));
+        }
+        return users;
+    }
     
      /**
      * Create new Users
