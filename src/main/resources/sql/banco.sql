@@ -579,3 +579,38 @@ ALTER TABLE ONLY pedidos
 --
 -- PostgreSQL database dump complete
 --
+CREATE VIEW pessoasativas AS
+SELECT 
+  pessoas.idpessoa, 
+  pessoas.cpf, 
+  pessoas.datacadastro, 
+  pessoas.email, 
+  pessoas.nome, 
+  pessoas.status, 
+  pessoas.telefone
+FROM 
+  public.pessoas
+WHERE 
+  pessoas.status = 'A';
+
+
+
+CREATE OR REPLACE VIEW public.vwpedidos AS 
+ SELECT 
+  produtos.descricao, 
+  produtos.quantidade, 
+  produtos.valorunitario, 
+  pessoas.nome, 
+  pedidos.datapedido, 
+  pessoas.cpf
+FROM 
+  public.pessoas, 
+  public.produtos, 
+  public.pedidos
+WHERE 
+  pessoas.idpessoa = pedidos.fkpessoas AND
+  produtos.idprodutos = pedidos.fkprodutos AND
+  pedidos.datapedido = pedidos.datapedido;
+
+ALTER TABLE public.vwpedidos
+  OWNER TO postgres;
