@@ -1,7 +1,7 @@
 
-package com.jersey.persistence;
+package com.betha.dao;
 
-import com.jersey.representations.Produtos;
+import com.betha.model.Produtos;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ProdutosDao extends JpaRepository<Produtos, Long> {

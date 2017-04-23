@@ -1,4 +1,4 @@
-package com.jersey.representations;
+package com.betha.model;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
@@ -13,9 +13,9 @@ import javax.persistence.Table;
  *
  * @author jr
  */
-@Entity
-@Table(catalog = "betha", schema = "public")
 
+@Table(catalog = "betha", schema = "public")
+@Entity
 public class Users implements Serializable {
 
     private static final long serialVersionUID = 1L;

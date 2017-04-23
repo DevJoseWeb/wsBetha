@@ -1,7 +1,7 @@
-package com.jersey.resources;
+package com.betha.rest;
 
-import com.jersey.persistence.AddressDao;
-import com.jersey.representations.Address;
+import com.betha.dao.AddressDao;
+import com.betha.model.Address;
 import java.util.List;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;

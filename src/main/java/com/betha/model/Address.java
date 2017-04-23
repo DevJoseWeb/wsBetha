@@ -1,4 +1,4 @@
-package com.jersey.representations;
+package com.betha.model;
 
 import java.io.Serializable;
 import java.util.Set;

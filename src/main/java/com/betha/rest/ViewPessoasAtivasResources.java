@@ -1,7 +1,7 @@
-package com.jersey.resources;
+package com.betha.rest;
 
-import com.jersey.persistence.ViewPessoasAtivasDao;
-import com.jersey.representations.ViewPessoasativas;
+import com.betha.dao.ViewPessoasAtivasDao;
+import com.betha.model.ViewPessoasativas;
 import java.util.List;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;

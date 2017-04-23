@@ -1,7 +1,7 @@
-package com.jersey.resources;
+package com.betha.rest;
 
-import com.jersey.persistence.PedidosDao;
-import com.jersey.representations.Pedidos;
+import com.betha.dao.PedidosDao;
+import com.betha.model.Pedidos;
 import java.util.List;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -33,7 +33,8 @@ public class PedidosResource {
      * @return pedidos
      */
     @GET
-    @Path("/todosPedidos")
+    @Consumes("application/json; charset=UTF-8")
+    @Path("/")
     public List<Pedidos> getPedidosTodos() {
         List<Pedidos> pedidos = this.pedidosDao.findAll();
         return  pedidos;
@@ -58,7 +59,7 @@ public class PedidosResource {
      * @return pedidos
      */
     @GET
-    @Produces("application/json; charset=UTF-8")
+    @Consumes("application/json; charset=UTF-8")
     @Path("{idpedidos}")
     public Pedidos getPedidosId(@PathParam("idpedidos")long idpedidos) {
         Pedidos pedidos = pedidosDao.findOne(idpedidos);

@@ -1,6 +1,6 @@
-package com.jersey.persistence;
+package com.betha.dao;
 
-import com.jersey.representations.Pedidos;
+import com.betha.model.Pedidos;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface PedidosDao extends JpaRepository<Pedidos, Long> {

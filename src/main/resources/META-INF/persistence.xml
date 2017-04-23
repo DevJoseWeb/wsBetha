@@ -2,13 +2,11 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="com.jersey_spring-boot-jersey-hibernate_jar_1.0-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    <class>com.jersey.resources.Pessoas</class>
-    <class>com.jersey.resources.Produtos</class>
-    <class>com.jersey.representations.Produtos</class>
-    <class>com.jersey.representations.Pessoas</class>
-    <class>com.jersey.representations.Pedidos</class>
-    <class>com.jersey.representations.Address</class>
-    <class>com.jersey.representations.Users</class>
+    <class>com.betha.model.Address</class>
+    <class>com.betha.model.Users</class>
+    <class>com.betha.model.Pedidos</class>
+    <class>com.betha.model.Produtos</class>
+    <class>com.betha.model.Pessoas</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/betha"/>
       <property name="javax.persistence.jdbc.user" value="postgres"/>

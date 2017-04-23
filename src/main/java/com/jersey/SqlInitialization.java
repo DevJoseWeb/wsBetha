@@ -1,4 +1,4 @@
-    package com.jersey.config;
+    package com.jersey;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,7 +15,7 @@ import org.springframework.transaction.support.TransactionTemplate;
 import javax.sql.DataSource;
 import java.util.Properties;
 @Configuration
-@EnableJpaRepositories(basePackages = "com.jersey.persistence")
+@EnableJpaRepositories(basePackages = "com.betha.dao")
 public class SqlInitialization{
 
     @Bean
@@ -32,7 +32,7 @@ public class SqlInitialization{
         public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactoryBean.setDataSource(dataSource());
-        entityManagerFactoryBean.setPackagesToScan("com.jersey.representations");
+        entityManagerFactoryBean.setPackagesToScan("com.betha.model");
         entityManagerFactoryBean.setJpaProperties(buildHibernateProperties());
         entityManagerFactoryBean.setJpaProperties(new Properties() {{
             put("hibernate.current_session_context_class", SpringSessionContext.class.getName());

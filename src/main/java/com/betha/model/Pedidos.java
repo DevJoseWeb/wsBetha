@@ -1,6 +1,7 @@
-package com.jersey.representations;
+package com.betha.model;
 
 import java.io.Serializable;
+import java.math.BigInteger;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -13,9 +14,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import org.hibernate.annotations.OrderBy;
-import org.hibernate.annotations.Sort;
-import org.hibernate.annotations.SortType;
 
 /**
  *
@@ -23,23 +21,9 @@ import org.hibernate.annotations.SortType;
  */
 @Entity
 @Table(name = "pedidos", catalog = "betha", schema = "public")
-
 public class Pedidos implements Serializable {
 
-    /**
-     * @return the status
-     */
-    public String getStatus() {
-        return status;
-    }
-
-    /**
-     * @param status the status to set
-     */
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
+ 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -56,19 +40,17 @@ public class Pedidos implements Serializable {
     
     @JoinColumn(name = "fkprodutos", referencedColumnName = "idprodutos")
     @ManyToOne
-    @OrderBy(clause = "datapedido DESC") 
-    @Sort(type = SortType.NATURAL)
     public Produtos fkprodutos;
     
     @JoinColumn(name = "fkpessoas", referencedColumnName = "idpessoa")
     @ManyToOne
-    @OrderBy(clause = "datapedido DESC") 
-    @Sort(type = SortType.NATURAL)
-    public Pessoas fkpessoas;
-      
-//    @JoinColumn(name = "fkpessoas", referencedColumnName = "idpessoa")
-//    @NotNull
-//    private Long fkpessoas;
+    public Pessoas pessoas;
+    
+    @Column(name = "quantidade")
+    public BigInteger quantidade;
+    
+    @Column(name = "nota")
+    public BigInteger nota;
 
     public Pedidos() {
     }
@@ -108,18 +90,59 @@ public class Pedidos implements Serializable {
     }
 
     /**
-     * @return the fkpessoas
+     * @return the pessoas
      */
-    public Pessoas getFkpessoas() {
-        return fkpessoas;
+    public Pessoas getPessoas() {
+        return pessoas;
     }
 
     /**
-     * @param fkpessoas the fkpessoas to set
+     * @param pessoas the fkpessoas to set
      */
-    public void setFkpessoas(Pessoas fkpessoas) {
-        this.fkpessoas = fkpessoas;
+    public void setPessoas(Pessoas pessoas) {
+        this.pessoas = pessoas;
     }
-    
+
+    /**
+     * @return the quantidade
+     */
+    public BigInteger getQuantidade() {
+        return quantidade;
+    }
+
+    /**
+     * @param quantidade the quantidade to set
+     */
+    public void setQuantidade(BigInteger quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    /**
+     * @return the nota
+     */
+    public BigInteger getNota() {
+        return nota;
+    }
+
+    /**
+     * @param nota the nota to set
+     */
+    public void setNota(BigInteger nota) {
+        this.nota = nota;
+    }
+       /**
+     * @return the status
+     */
+    public String getStatus() {
+        return status;
+    }
+
+    /**
+     * @param status the status to set
+     */
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     
 }

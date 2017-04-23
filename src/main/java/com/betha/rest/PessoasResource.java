@@ -1,7 +1,7 @@
-package com.jersey.resources;
+package com.betha.rest;
 
-import com.jersey.persistence.PessoasDao;
-import com.jersey.representations.Pessoas;
+import com.betha.dao.PessoasDao;
+import com.betha.model.Pessoas;
 import java.util.List;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,6 +11,7 @@ import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+
 
 /**
  *
@@ -29,7 +30,6 @@ public class PessoasResource {
     public PessoasResource(PessoasDao pessoasDao) {
         this.pessoasDao = pessoasDao;
     }
-      
      /**
      * Get single Pessoas
      * @param idpessoa
@@ -119,22 +119,21 @@ public class PessoasResource {
             return pessoasDao.save(pessoas);
         }
         }
-         /**
+     /**
      * Get single Pessoas
      * @param nome
      * @return pessoas
      */
     @GET
     @Consumes("application/json; charset=UTF-8")
-    @Produces("application/json; charset=UTF-8")
     @Path("/buscar/{nome}")
     public Pessoas getPessoasNome(@PathParam("nome") String nome) {
         Pessoas pessoas = pessoasDao.findByNome(nome);
+     
         if (pessoas == null) {
             throw new WebApplicationException((Response.Status.NOT_FOUND));
         }
         return pessoas;
     }
 }
-
 

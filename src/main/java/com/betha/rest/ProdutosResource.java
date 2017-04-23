@@ -1,7 +1,7 @@
-package com.jersey.resources;
+package com.betha.rest;
 
-import com.jersey.persistence.ProdutosDao;
-import com.jersey.representations.Produtos;
+import com.betha.dao.ProdutosDao;
+import com.betha.model.Produtos;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 

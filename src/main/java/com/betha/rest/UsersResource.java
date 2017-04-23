@@ -1,7 +1,7 @@
-package com.jersey.resources;
+package com.betha.rest;
 
-import com.jersey.persistence.UsersDao;
-import com.jersey.representations.Users;
+import com.betha.dao.UsersDao;
+import com.betha.model.Users;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 

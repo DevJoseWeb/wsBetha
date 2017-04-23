@@ -1,14 +1,18 @@
-package com.jersey.persistence;
+package com.betha.dao;
 
-import com.jersey.representations.Pessoas;
+/*
+ * @author jr
+ */
+
+import com.betha.model.Vwpedidos;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 @Transactional(readOnly = true)
-public interface PessoasDao extends JpaRepository<Pessoas, Long> {
+public interface ViewPedidosDao extends JpaRepository<Vwpedidos, Long> {
+    @Query("SELECT u FROM Vwpedidos u WHERE u.nome = :nome")
+       Vwpedidos findByNome(@Param("nome") String nome);
 
-    @Query("SELECT u FROM Pessoas u WHERE u.nome = :nome")
-       Pessoas findByNome(@Param("nome") String nome);
 }

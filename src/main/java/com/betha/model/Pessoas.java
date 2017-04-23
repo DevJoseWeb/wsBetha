@@ -1,16 +1,23 @@
-package com.jersey.representations;
+package com.betha.model;
 
+import com.betha.vo.PessoasVO;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 import javax.persistence.Column;
+import javax.persistence.ColumnResult;
+import javax.persistence.ConstructorResult;
 import javax.persistence.Entity;
+import javax.persistence.EntityResult;
 import javax.persistence.FetchType;
+import javax.persistence.FieldResult;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.SqlResultSetMapping;
+import javax.persistence.SqlResultSetMappings;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -23,7 +30,38 @@ import org.hibernate.annotations.OrderBy;
  * @author jr
  */
 @Entity
- @Table(name = "pessoas", catalog = "betha", schema = "public")
+@Table(name = "pessoas", catalog = "betha", schema = "public")
+@SqlResultSetMapping(
+    name = "teste",
+    entities = {
+        @EntityResult(
+            entityClass = Pessoas.class,
+            fields = {
+                @FieldResult(name = "idpessoa", column = "idpessoa"),
+                @FieldResult(name = "nome", column = "nome"),
+                @FieldResult(name = "cpf", column = "cpf"),
+                @FieldResult(name = "email", column = "email")}),
+        @EntityResult(
+            entityClass = Pedidos.class,
+            fields = {
+                @FieldResult(name = "idpedidos", column = "idpedidos"),
+                @FieldResult(name = "status", column = "status")})}
+)
+@SqlResultSetMappings({
+    @SqlResultSetMapping(
+            name = "teste2",
+            classes = {
+                @ConstructorResult(
+                        targetClass = PessoasVO.class,
+                        columns = {
+                            @ColumnResult(name = "idpessoa"),
+                            @ColumnResult(name = "nome")
+                        }
+                )
+            }
+    )
+
+})
 public class Pessoas implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -61,6 +99,9 @@ public class Pessoas implements Serializable {
     public Pessoas() {
         //todo
     }
+      
+        
+    
     public Pessoas(String nome, String cpf, Date datacadastro, String email, String telefone) {
         this.nome = nome;
         this.cpf = cpf;
@@ -132,4 +173,6 @@ public class Pessoas implements Serializable {
     public void setPedidosList(Set<Pedidos> pedidosList) {
         this.pedidosList = pedidosList;
     }
+
+
 }

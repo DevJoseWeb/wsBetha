@@ -1,7 +1,7 @@
-package com.jersey.resources;
+package com.betha.rest;
 
-import com.jersey.persistence.ViewPedidosDao;
-import com.jersey.representations.Vwpedidos;
+import com.betha.dao.ViewPedidosDao;
+import com.betha.model.Vwpedidos;
 import java.util.List;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;

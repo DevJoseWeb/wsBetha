@@ -1,4 +1,4 @@
-package com.jersey.config;
+package com.jersey;
 
 import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
 import org.glassfish.jersey.server.ResourceConfig;
@@ -12,6 +12,6 @@ public class JerseyInitialization extends ResourceConfig {
         this.register(new JacksonJsonProvider(ObjectMapperFactory.create()));
         this.property(ServerProperties.BV_SEND_ERROR_IN_RESPONSE, true);
         this.property(ServerProperties.BV_DISABLE_VALIDATE_ON_EXECUTABLE_OVERRIDE_CHECK, true);
-        this.packages(true, "com.jersey.resources");
+        this.packages(true, "com.betha.rest");
     }
 }

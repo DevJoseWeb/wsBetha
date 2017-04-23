@@ -1,4 +1,4 @@
-package com.jersey.representations;
+package com.betha.model;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -11,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.Size;
 
 /**
  *
@@ -28,7 +27,6 @@ public class Produtos implements Serializable {
     @Column(name = "idprodutos")
     private Long idprodutos;
     
-    @Size(max = 2147483647)
     @Column(name = "descricao")
     private String descricao;
     
@@ -36,19 +34,16 @@ public class Produtos implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date datacadastro;
     
-    @Size(max = 2147483647)
     @Column(name = "valorunitario")
     private String valorunitario;
     
-    @Size(max = 2147483647)
     @Column(name = "quantidade")
     private String quantidade;
     
-    @Size(max = 2147483647)
     @Column(name = "estoque")
     private String estoque;
     
-    @Size(max = 2147483647)
+
     @Column(name = "status")
     private String status;
 

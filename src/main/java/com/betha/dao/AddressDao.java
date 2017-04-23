@@ -1,6 +1,6 @@
-package com.jersey.persistence;
+package com.betha.dao;
 
-import com.jersey.representations.Address;
+import com.betha.model.Address;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AddressDao extends JpaRepository<Address, Long> {
