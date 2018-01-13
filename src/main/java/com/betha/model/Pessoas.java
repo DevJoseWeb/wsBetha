@@ -98,9 +98,7 @@ public class Pessoas implements Serializable {
 
     public Pessoas() {
         //todo
-    }
-      
-        
+    }            
     
     public Pessoas(String nome, String cpf, Date datacadastro, String email, String telefone) {
         this.nome = nome;
