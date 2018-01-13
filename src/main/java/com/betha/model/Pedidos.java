@@ -45,7 +45,7 @@ public class Pedidos implements Serializable {
     @JoinColumn(name = "fkpessoas", referencedColumnName = "idpessoa")
     @ManyToOne
     public Pessoas pessoas;
-    
+
     @Column(name = "quantidade")
     public BigInteger quantidade;
     
